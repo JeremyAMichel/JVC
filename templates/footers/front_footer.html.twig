@@ -1,1 +1,14 @@
-<p> FRONT FOOTER </p>
+<div class="d-flex justify-content-around bgFooter">
+    <div class="d-flex">
+        <p class="me-3"> Number of games : {{ nbGame() }} </p>
+        <p> Number of posts : {{ nbPost() }} </p>
+    </div>
+    <div id="coordonnee" class="d-flex flex-column">
+        {% set coordonnee = coordonnee() %}
+        <p>{{ coordonnee.adresse }}</p>
+        <p>{{ coordonnee.CodePostal }}</p>
+        <p>{{ coordonnee.ville }}</p>
+        <p>{{ coordonnee.NumTel }}</p>
+        <p>{{ coordonnee.email }}</p>
+    </div>
+</div>
