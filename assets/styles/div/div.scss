@@ -1,0 +1,26 @@
+.treatment{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.circle-avatar{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: grey;
+}
+
+.head-message-topic{
+    align-items: center;
+    border-bottom: 0.5px dotted grey;
+}
+
+.bloc-message-topic{
+    border: 0.5px solid grey;
+    border-radius: 5px;
+}
+

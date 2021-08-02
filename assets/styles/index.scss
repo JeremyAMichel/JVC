@@ -1,3 +1,11 @@
-.para-blue{
-    color: blue;
+@import url("span/span.scss");
+@import url("a/a.scss");
+@import url("div/div.scss");
+@import url("td/td.scss");
+@import url("img/img.scss");
+
+.para-blue {
+	color: blue;
+
 }
+

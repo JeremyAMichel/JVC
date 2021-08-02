@@ -30,7 +30,7 @@ class Game
     private $description;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime")
      */
     private $launch_at;
 
@@ -94,12 +94,12 @@ class Game
         return $this;
     }
 
-    public function getLaunchAt(): ?\DateTimeImmutable
+    public function getLaunchAt(): ?\DateTime
     {
         return $this->launch_at;
     }
 
-    public function setLaunchAt(\DateTimeImmutable $launch_at): self
+    public function setLaunchAt(\DateTime $launch_at): self
     {
         $this->launch_at = $launch_at;
 

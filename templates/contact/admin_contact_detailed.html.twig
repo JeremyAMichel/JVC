@@ -1,0 +1,29 @@
+{% extends 'layouts/admin.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+
+
+<div class="contact-row">
+    <div class="d-flex justify-content-around">
+        <h2>{{ contact.title }} : </h2>
+        <p>Created at : {{ contact.createdAt|date('Y-m-d H:i') }}</p>
+    </div>
+
+    <div class="dropdown-divider mt-3 mb-5"></div>
+
+    <div class="px-5">
+        <p> {{ contact.content }} </p>
+    </div>
+
+    <div class="dropdown-divider mt-3 "></div>
+
+    <div class="treatment mb-3">
+        <a href="{{ path('admin_contact') }}" class="btn btn-secondary me-5">Back</a>
+        <a href="{{ path('admin_contact_treated', {'id' : contact.id})  }}" class="btn btn-success">Treated</a>
+    </div>
+</div>
+
+
+{% endblock %}

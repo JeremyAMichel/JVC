@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminPostController!{% endblock %}
+
+{% block body %}
+    <a href="{{ path('admin_create_post') }}" class="btn btn-primary">Create a Post</a>
+
+
+    <div class="dropdown-divider mt-3 mb-5"></div>
+    <h2>All Posts : </h2>
+    <div class="d-flex flex-wrap">
+    {% for post in posts %}
+    
+        {% include 'post/post.html.twig' %}
+    {% endfor %}
+    </div>
+{% endblock %}

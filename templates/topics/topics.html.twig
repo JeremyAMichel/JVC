@@ -1,0 +1,38 @@
+{% extends 'layouts/front.html.twig' %}
+
+{% block title %}Topics!{% endblock %}
+
+{% block body %}
+
+    <h2 class="mb-5">{{ forum.title }}</h2>
+    {% dump %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">TOPIC</th>
+                <th scope="col">AUTEUR</th>
+                <th scope="col">NB MESSAGES</th>
+                <th scope="col">LAST MESSAGE</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for topic in topics %}
+            <tr class="trSurvol">
+                <td><a href="{{ path('messages',{ 'idTopic':topic.id }) }}">{{ topic.title }}</a></td>
+                <td>{{ topic.user.FirstName }} {{ topic.user.LastName }}</td>
+                <td>{{ topic.messages|length }}</td>
+                <td>{{ lastMessage(topic.id) }} </td>
+                {# {% set lastMsg = lastMessage(topic.id) %}
+                {% if lastMsg %}               
+                <td>{{ lastMsg.CreatedAt|date('Y-m-d H:i') }}</td>
+                {% else %}
+                <td>Aucun Message</td>
+                {% endif %} #}
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+
+{% endblock %}

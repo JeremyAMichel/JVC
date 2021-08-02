@@ -1,0 +1,21 @@
+<div class="card mb-5 me-3" style="width: 26rem;">
+  <div class="card-body">
+    <div class="d-flex justify-content-between">
+        <h5 class="card-title">{{ game.title }}</h5> 
+        <p><span style="font-weight: bold">Price : </span>{{ game.price }}$$</p>    
+    </div>
+        <p class="mb-3"><span style="font-weight: bold">Launch At : </span>{{ game.getLaunchAt|date("Y-m-d") }}</p>    
+    <img 
+        class="gameImg mb-3"
+        src="{{ game.getPathImg }}">
+    <div class="d-flex note">
+        <p style="font-weight: bold">Global note :</p>
+    {% for i in 1..nbrStar %}
+        <img class="noteStar" src="{{ asset('build/image/star2.png') }}">
+    {% endfor %}
+    {% for i in 1..otherStar %}
+        <img class="noteStar" src="{{ asset('build/image/star1.png') }}">
+    {% endfor %}
+    </div>
+  </div>
+</div>

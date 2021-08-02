@@ -1,0 +1,17 @@
+{% extends 'layouts/admin.html.twig' %}
+
+{% block title %}Hello AdminPostCategoryController!{% endblock %}
+
+{% block body %}
+    <a href="{{ path('admin_create_post_category') }}" class="btn btn-primary">Create a Post Category</a>
+
+
+    <div class="dropdown-divider mt-3 mb-5"></div>
+    <h2>All Post Categories : </h2>
+    <div class="d-flex flex-wrap">
+    {% for postCategory in postCategories %}
+    
+        {% include 'post_category/post_category.html.twig' %}
+    {% endfor %}
+    </div>
+{% endblock %}

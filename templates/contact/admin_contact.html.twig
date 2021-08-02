@@ -1,0 +1,46 @@
+{% extends 'layouts/admin.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+
+<h2>Messages : </h2>
+
+<div class="dropdown-divider mt-3 mb-5"></div>
+
+<h3 class="mb-3">Messages waiting : </h3>
+
+{% for contactWaiting in contactsWaiting|sort|reverse %}
+<a href="{{ path('admin_contact_detailed', {'id' : contactWaiting.id})  }}">
+<div class="contact-row">
+    <span class="contactCase px-3">
+        {% if contactWaiting.status == 0 %}
+        <span class="dot red"></span>
+        {% elseif contactWaiting.status == 1 %}
+        <span class="dot yellow"></span>
+        {% endif %}
+    </span>
+    <span class="contactCase px-3">Created At :{{ contactWaiting.createdAt|date('Y-m-d H:i') }}</span>
+    <span class="contactCase px-3">Title : {{ contactWaiting.title }}</span>
+
+</div>
+</a>
+{% endfor %}
+
+
+<h3 class="mb-3">Messages treated : </h3>
+
+{% for contactTreated in contactsTreated|sort|reverse %}
+<a href="{{ path('admin_contact_detailed', {'id' : contactTreated.id})  }}">
+<div class="contact-row">
+    <span class="contactCase px-3">
+        <span class="dot green"></span>
+    </span>
+    <span class="contactCase px-3">Created At :{{ contactTreated.createdAt|date('Y-m-d H:i') }}</span>
+    <span class="contactCase px-3">Title : {{ contactTreated.title }}</span>
+    <span class="contactCase px-3">Treated At : {{ contactTreated.treatedAt|date('Y-m-d H:i') }}</span>
+</div>
+</a>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,7 @@
+<div class="card mb-5 me-3" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{ postCategory.name }}</h5>
+    <a href="{{ path('admin_update_post_category', {'id' : postCategory.id}) }}" class="btn btn-primary">Update</a>
+    <a href="{{ path('admin_delete_post_category', {'id' : postCategory.id}) }}" class="btn btn-danger">Delete</a>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+{{ form_start(form) }}
+    <div class="d-flex flex-column">
+        {{ form_widget(form.content) }}
+        {% if app.user %}
+        <button class="btn btn-primary mt-3 mb-3" style="max-width:9rem" >{{ button_label|default('Poster') }}</button>
+        {% else %}
+        <button name="btnPoster" class="btn btn-primary mt-3 mb-3" style="max-width:9rem" disabled>{{ button_label|default('Poster') }}</button>
+        <label for="btnPoster" style="color:red">Vous devez être connecté pour répondre à ce topic</label>
+        {% endif %}
+    </div>
+{{ form_end(form) }}

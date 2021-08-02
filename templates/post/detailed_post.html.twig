@@ -1,0 +1,19 @@
+{% extends 'layouts/front.html.twig' %}
+
+{% block body %}
+<div>
+  <div>
+    <div class="d-flex">     
+      <p class="me-3"><span style="font-weight: bold">Created At : </span>{{ post.getCreatedAt|date("Y-m-d H:i") }}</p>
+      <p><span style="font-weight: bold">View :</span> {{ post.getNumberView }}</p>
+    </div>
+    <h5 class="card-title">{{ post.title }}</h5>
+    <div class="d-flex">
+      <p class="me-3"><span style="font-weight: bold">Post Category :</span> {{ post.postCategory.name }}</p>
+      <p><span style="font-weight: bold">From :</span> {{ post.user.firstName }} {{ post.user.lastName }}</p>
+    </div>
+    <p class="card-text">{{ post.content }}</p> 
+  </div>
+</div>
+
+{% endblock %}

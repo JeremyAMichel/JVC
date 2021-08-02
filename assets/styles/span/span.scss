@@ -1,0 +1,41 @@
+.contact-row {
+	border: 1px solid black;
+    min-width: 50%;
+    min-height: 30px;
+}
+
+.contactCase:first-child{
+    border-right: 1px solid black;
+    width: 10%;
+    text-align: center;
+}
+
+.contactCase:nth-child(2){
+    border-right: 1px solid black;
+    width: 45%;
+}
+
+.dot{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.red{
+    background-color: crimson;
+}
+
+.yellow{
+    background-color: rgb(255, 255, 62);
+}
+
+.green{
+    background-color: rgb(159, 223, 30);
+}
+
+
+.préH2{
+    font-size: 2rem;
+    color: grey;
+}
