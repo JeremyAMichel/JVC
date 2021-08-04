@@ -9,10 +9,9 @@
 
 {# <img src="{{ asset('build/image/1.jpg') }}"> #}
 
-{% for post in posts %}
+<div class="scrollBottom d-flex flex-wrap">
+    
 
-<h3 class="mb-3"><a href="{{ path('detailed-post', {'id' : post.id}) }}">{{ post.title }}<a></h3>
-
-{% endfor %}
+</div>
 
 {% endblock %}

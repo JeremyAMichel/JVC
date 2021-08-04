@@ -45,6 +45,8 @@ class AdminPostController extends AbstractController
     public function adminReadPosts(): Response
     {    
         $posts=$this->postRepository->findAll();
+
+        // faire form de filtre HERE voir:PostFilterType
         return $this->render('post/admin_post.html.twig', [
             'controller_name' => 'AdminPostController',
             'posts'=> $posts

@@ -5,8 +5,11 @@ namespace App\Controller;
 use App\Repository\PostRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 class HomeController extends AbstractController
 {
@@ -32,11 +35,35 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
-        $posts=$this->postRepository->findAll();
+        // $posts=$this->postRepository->findAll();
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
-            'posts' => $posts
+            // 'controller_name' => 'HomeController',
+            // 'posts' => $posts
         ]);
+    }
+
+    /**
+     * @Route("/test-ajax", name="test-ajax")
+     */
+    public function testAjax(PaginatorInterface $paginator, Request $request): Response
+    {
+        $qb = $this->postRepository->getQbAll();
+        $pagination = $paginator->paginate(
+            $qb,
+            $request->query->getInt('page',1),
+            6
+        );
+
+        $html = $this->renderView('partial/post.html.twig', [
+            'pagination' => $pagination,
+
+        ]);
+
+        $response = new JsonResponse();
+        $response->setData([
+            'html' => $html,
+        ]);
+        return $response;
     }
 
     /**
