@@ -37,6 +37,11 @@ class Message
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $hasBeenVerified;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +91,18 @@ class Message
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getHasBeenVerified(): ?bool
+    {
+        return $this->hasBeenVerified;
+    }
+
+    public function setHasBeenVerified(bool $hasBeenVerified): self
+    {
+        $this->hasBeenVerified = $hasBeenVerified;
 
         return $this;
     }

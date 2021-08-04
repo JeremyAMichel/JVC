@@ -74,6 +74,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $topics;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $numberOfBanWordsUsed;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isBan;
+
     public function __construct()
     {
         $this->posts = new ArrayCollection();
@@ -323,6 +333,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $topic->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getNumberOfBanWordsUsed(): ?int
+    {
+        return $this->numberOfBanWordsUsed;
+    }
+
+    public function setNumberOfBanWordsUsed(int $numberOfBanWordsUsed): self
+    {
+        $this->numberOfBanWordsUsed = $numberOfBanWordsUsed;
+
+        return $this;
+    }
+
+    public function getIsBan(): ?bool
+    {
+        return $this->isBan;
+    }
+
+    public function setIsBan(bool $isBan): self
+    {
+        $this->isBan = $isBan;
 
         return $this;
     }

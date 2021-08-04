@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Post;
+use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -52,6 +53,18 @@ class PostRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('p')
         
+        ;
+    }
+
+    public function findBeforeDate(DateTime $date)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.created_at < :date')
+            ->setParameter('date',$date)
+            ->andWhere('p.status != :status')
+            ->setParameter('status',2)
+            ->getQuery()
+            ->getResult()      
         ;
     }
 }

@@ -64,4 +64,16 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         ;
     }
     */
+
+    public function getUsersToBan(): array
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.numberOfBanWordsUsed >= :nbr')
+            ->setParameter('nbr', 3)
+            ->andWhere('u.isBan != :true')
+            ->setParameter('true', true)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

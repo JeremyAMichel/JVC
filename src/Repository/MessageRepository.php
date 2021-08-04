@@ -48,17 +48,14 @@ class MessageRepository extends ServiceEntityRepository
     }
     */
 
-    // public function getLastMessageOfTopic($idTopic): array
-    // {
-    //     return $this->createQueryBuilder('m')
-    //         ->select('m.created_at')
-    //         ->where('m.topic = :val')
-    //         ->setParameter('val', $idTopic)
-    //         ->orderBy('m.created_at','DESC')
-    //         ->setMaxResults(1)
-    //         ->getQuery()
-    //         ->getResult()
-    //     ;
-    // }
+    public function getMessagesUnverified(): array
+    {
+        return $this->createQueryBuilder('m')
+            ->andWhere('m.hasBeenVerified = :verified')
+            ->setParameter('verified', false)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }
 
